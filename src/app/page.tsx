@@ -1,15 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { serviceCategories } from '@/lib/services';
 
 export default function Home() {
-  const services = [
-    { name: 'Swedish Massage', desc: 'Classic relaxation massage using long, flowing strokes to ease tension and promote well-being.', price: '$80/60min' },
-    { name: 'Deep Tissue Massage', desc: 'Targets deep muscle layers to release chronic tension and knots.', price: '$95/60min' },
-    { name: 'Sports Massage', desc: 'Designed for athletes to improve performance and speed recovery.', price: '$100/60min' },
-    { name: 'Hot Stone Massage', desc: 'Heated stones melt away stress and tension for deep relaxation.', price: '$110/60min' },
-    { name: 'Thai Massage', desc: 'Traditional stretching and pressure techniques to increase flexibility.', price: '$90/60min' },
-    { name: 'Couples Massage', desc: 'Share a relaxing experience with your partner in our couples suite.', price: '$160/60min' },
-  ];
   return (
     <div>
       <section className="relative min-h-[500px] flex items-center">
@@ -26,11 +19,18 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Our Services</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((s, i) => (
-              <div key={i} className="bg-teal-50 p-6 rounded-lg">
-                <h3 className="font-bold text-gray-900 mb-2">{s.name}</h3>
-                <p className="text-gray-600 text-sm mb-2">{s.desc}</p>
-                <p className="text-teal-600 font-bold">{s.price}</p>
+            {serviceCategories.map((category) => (
+              <div key={category.title} className="bg-teal-50 p-6 rounded-lg border border-teal-100">
+                <h3 className="font-bold text-gray-900 mb-4">{category.title}</h3>
+                <ul className="space-y-3 mb-4">
+                  {category.services.map((service) => (
+                    <li key={service} className="flex gap-3 text-gray-700 text-sm">
+                      <span className="text-teal-600 font-bold">•</span>
+                      <span>{service}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/services" className="text-teal-700 font-bold hover:text-teal-800">View services</Link>
               </div>
             ))}
           </div>
