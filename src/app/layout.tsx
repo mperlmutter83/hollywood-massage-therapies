@@ -15,6 +15,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        {/* RFM site data - pushed before GTM loads */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  rfm: {
+    schema_version: "1.0",
+    site_id: "hollywood_massage_therapies",
+    provider_id: "76296b76-049f-4df2-93cf-3933e74d87f5",
+    provider_name: "Hollywood Massage Therapies",
+    service_category: "massage_therapy",
+    market: "hollywood"
+  }
+});`,
+          }}
+        />
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
