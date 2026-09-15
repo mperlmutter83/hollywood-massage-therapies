@@ -2,9 +2,10 @@ import HoursLines from '@/components/HoursLines';
 export default function Footer() {
   return (
     <footer className="bg-teal-800 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
         <div><h3 className="font-bold text-lg mb-4">Hollywood Massage Therapies</h3><p className="text-teal-200">Relax. Restore. Rejuvenate.</p></div>
         <div><h4 className="font-bold mb-4">Contact</h4><a href="tel:+13106945261" className="text-teal-200">(310) 694-5261</a><p className="text-teal-200 mt-2">Hollywood, CA</p></div>
+        <div><h4 className="font-bold mb-4">Quick Links</h4><a href="/looking-for-work" className="text-teal-200 hover:text-white">Looking for Work</a></div>
         <div><h4 className="font-bold mb-4">Hours</h4><HoursLines className="text-teal-200" /></div>
       </div>
     </footer>
